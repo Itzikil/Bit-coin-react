@@ -4,7 +4,7 @@ export function ContactPreview({ contact }) {
     return (
         <section className="contact-preview flex" >
             <Link to={`/contact/${contact._id}`} className="contact-preview flex align-center">
-            <img src={contact.imgUrl} alt="" />
+            <img src={contact.imgUrl} alt="contact" />
             <h1>{contact.name}</h1>
             </Link>
         </section>
