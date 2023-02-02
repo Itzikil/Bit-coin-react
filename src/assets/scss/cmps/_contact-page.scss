@@ -1,0 +1,30 @@
+.contact-page {
+    input {
+        width: 100%;
+    }
+    h1{
+        font-size: 1rem;
+    }
+
+    .add-btn {
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        line-height: 50px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        font-size: 3rem;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+    }
+}
+
+@media (min-width: 600px) {
+    .contact-page {
+        input {
+            width: 300px;
+        }
+    }
+}

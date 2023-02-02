@@ -1,0 +1,15 @@
+.contact-list {
+
+    gap: 10px;
+
+    .contact-preview {
+        cursor: pointer;
+        width: max-content;
+
+        gap: 20px;
+
+        img {
+            max-height: 30px;
+        }
+    }
+}
