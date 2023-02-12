@@ -1,6 +1,76 @@
 .app-header {
     color: rgb(230, 235, 236);
+
     .active {
         color: rgb(74, 147, 179);
+        // background: -webkit-linear-gradient(rgb(102, 127, 160), white);
+        // -webkit-background-clip: text;
+        // -webkit-text-fill-color: transparent;
+    }
+    .desktop-menu{
+        display: flex;
+        gap: 15px;
+    }
+    z-index: 100;
+    position: relative;
+
+    .mobile-menu {
+        display: none;
+    }
+
+    .mobile-menu-container {
+        cursor: pointer;
+    }
+
+    .bar1,
+    .bar2,
+    .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: white;
+        border-radius: 2px;
+        transition: 0.4s;
+    }
+
+    .bar1,
+    .bar2 {
+        margin-bottom: 6px;
+    }
+
+    .change .bar1 {
+        transform: translate(0, 11px) rotate(-45deg);
+    }
+
+    .change .bar2 {
+        opacity: 0;
+    }
+
+    .change .bar3 {
+        transform: translate(0, -11px) rotate(45deg);
+    }
+
+    @media (max-width:640px) {
+
+        .desktop-menu {
+            flex-direction: column;
+            position: absolute;
+            right: 0;
+            top: 67px;
+            background-color: #282c34;
+            padding: 30px;
+            opacity: 0.9;
+            transition: 1s;
+        }
+        
+        .mobile-menu {
+            display: inline-block;
+            padding: 0;
+        }
+        .close-menu{
+            transform: translateX(110%);
+        }
+        .open-menu{
+            transform: translateX(0);
+        }
     }
 }

@@ -61,7 +61,7 @@ export const ContactDetailsPage = () => {
                 <button className='' onClick={onBack}>Back</button>
                 <Link to={`/contact/edit/${contact._id}`}>Edit</Link>
             </nav>
-            <img src={contact.imgUrl} />
+            <img src={contact.imgUrl} alt="contact image"/>
             <h1>{contact.name}</h1>
             <p>{contact.phone}</p>
             <p>{contact.email}</p>
@@ -79,7 +79,7 @@ export const ContactDetailsPage = () => {
                         {previousTransfers.map((move, idx) => {
                             return <li key={move.at}>
                                 <p><span>At:</span> {new Date(move.at).toLocaleString()}</p>
-                                <p><span>Amount:</span> {move.amount} Coins</p>
+                                <p><span>Amount:</span> ₿{move.amount}</p>
                             </li>
                         })
                         }

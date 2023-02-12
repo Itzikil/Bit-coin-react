@@ -7,8 +7,8 @@ export const bitcoinService = {
 }
 
 async function getRate(coins) {
-    const res = await axios.get(`https://blockchain.info/tobtc?currency=USD&value=${coins}`)
-    return res.data
+    const dollarToBitcoin = await axios.get(`https://blockchain.info/tobtc?currency=USD&value=100`)
+    return (1 / dollarToBitcoin.data) * coins  
 }
 
 async function getConfirmedTransactions() {

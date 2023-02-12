@@ -211,14 +211,18 @@
     }
 }
 
+.gap5 {
+    gap: 5px;
+}
+
 .gap15 {
     gap: 15px;
 }
 
-.btn{
+.btn {
     background-color: rgb(74, 147, 179);
     padding: 10px;
-    
+
     &:hover {
         color: rgb(255, 255, 255);
         background-color: rgb(62, 124, 151);
@@ -230,6 +234,18 @@
     border-radius: 5px;
 }
 
-.pointer{
+.pointer {
     cursor: pointer;
+}
+
+.gray {
+    color: rgb(199, 194, 194);
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.w-100 {
+    width: 100%;
 }

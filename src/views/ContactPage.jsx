@@ -11,7 +11,8 @@ export class ContactPage extends Component {
     contacts: [],
     filterBy: {
       term: ''
-    }
+    },
+    contact: null
   }
 
   componentDidMount() {
@@ -30,16 +31,26 @@ export class ContactPage extends Component {
   onChangeFilter = (filterBy) => {
     this.setState({ filterBy }, this.loadContacts)
   }
+  contactPreview = (contact) => {
+    this.setState({ contact })
+  }
 
   render() {
-    const { contacts, filterBy } = this.state
+    const { contacts, filterBy, contact } = this.state
+    if (!contacts?.length) return <div>Loading...</div>
     return (
       <section className='flex column contact-page gap15'>
         <div >
-        <ContactFilter onChangeFilter={this.onChangeFilter} filterBy={filterBy} />
-        <Link to={`/contact/edit`} className='btn add-btn'><p>+</p></Link>
+          <ContactFilter onChangeFilter={this.onChangeFilter} filterBy={filterBy} />
+          <Link to={`/contact/edit`} className='btn add-btn'><p>+</p></Link>
         </div>
-        <ContactList contacts={contacts} />
+        <ContactList contacts={contacts} contactPreview={this.contactPreview} />
+        {contact &&
+          <div className='contact-peak flex align-center column gap5'>
+            <img src={contact.imgUrl} alt="contact" />
+            <h3>{contact.name}</h3>
+          </div>
+        }
       </section>
     )
   }

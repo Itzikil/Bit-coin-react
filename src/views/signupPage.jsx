@@ -18,6 +18,7 @@ export const SignupPage = () => {
 
     const onSignup = (ev) => {
         ev.preventDefault()
+        if (!username) return console.log('add your name')
         // userService.signup(username)
         dispatch(signup(username))
         navigate('/')

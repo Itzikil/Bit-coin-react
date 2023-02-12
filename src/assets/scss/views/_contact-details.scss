@@ -2,42 +2,58 @@
 
     gap: 15px;
 
-    h1{
+    h1 {
         color: rgb(74, 147, 179);
     }
-    nav{
+
+    nav {
         width: 100%;
     }
+
     img {
         width: 200px;
     }
 
-    .transfer-coins{
+    .transfer-coins {
         background-color: rgba(78, 72, 72, 0.548);
         padding: 20px;
         border-radius: 5px;
     }
 
-    span{
+    span {
         font-weight: 800;
         font-size: 1.05rem;
     }
-    
-    
+
+
 }
-.previous-transfer{
+
+.previous-transfer {
     background-color: rgb(72, 91, 104);
     padding: 20px;
     border-radius: 5px;
+
+    li {
+        align-items: center;
+    }
+
+    .contactImg {
+        border-radius: 100%;
+        width: 32px;
+        height: 32px;
+        text-align: center;
+        padding: 5px;
+        background-color: cadetblue;
+    }
 }
 
-@media (max-width: 600px){
-    .previous-transfer{
+@media (max-width: 600px) {
+    .previous-transfer {
         width: 100%;
     }
-    
-    .transfer-coins{
+
+    .transfer-coins {
         width: 100%;
     }
-    
+
 }

@@ -1,3 +1,5 @@
+import { storageService } from "./storage.service"
+
 export const contactService = {
     getContacts,
     getContactById,
@@ -5,19 +7,19 @@ export const contactService = {
     saveContact,
     getEmptyContact
 }
-
+const storageKey = 'contact'
 
 const contacts = [
     {
         "_id": "5a56640269f443a5d64b32ca",
-        "name": "Ochoa Hyde",
+        "name": "Ochoa Hydes",
         "email": "ochoahyde@renovize.com",
         "phone": "+1 (968) 593-3824",
         "imgUrl": `https://robohash.org/set_set5/1.png`
     },
     {
         "_id": "5a5664025f6ae9aa24a99fde",
-        "name": "Hallie Mclean",
+        "name": "Hallie Mcleans",
         "email": "halliemclean@renovize.com",
         "phone": "+1 (948) 464-2888",
         "imgUrl": `https://robohash.org/set_set5/2.png`
@@ -142,24 +144,30 @@ const contacts = [
         "phone": "+1 (842) 587-3812",
         "imgUrl": `https://robohash.org/set_set5/19.png`
     }
-];
+]
+
+function loadContacts() {
+    return storageService.save(storageKey, contacts)
+}
+
+const storageContacts = storageService.load(storageKey) || loadContacts()
 
 function sort(arr) {
     return arr.sort((a, b) => {
         if (a.name.toLocaleLowerCase() < b.name.toLocaleLowerCase()) {
-            return -1;
+            return -1
         }
         if (a.name.toLocaleLowerCase() > b.name.toLocaleLowerCase()) {
-            return 1;
+            return 1
         }
 
-        return 0;
+        return 0
     })
 }
 
 function getContacts(filterBy = null) {
     return new Promise((resolve, reject) => {
-        var contactsToReturn = contacts;
+        var contactsToReturn = storageContacts
         if (filterBy && filterBy.term) {
             contactsToReturn = filter(filterBy.term)
         }
@@ -169,28 +177,29 @@ function getContacts(filterBy = null) {
 
 function getContactById(id) {
     return new Promise((resolve, reject) => {
-        const contact = contacts.find(contact => contact._id === id)
+        const contact = storageContacts.find(contact => contact._id === id)
         contact ? resolve(contact) : reject(`Contact id ${id} not found!`)
     })
 }
 
 function deleteContact(id) {
     return new Promise((resolve, reject) => {
-        const index = contacts.findIndex(contact => contact._id === id)
+        const index = storageContacts.findIndex(contact => contact._id === id)
         if (index !== -1) {
-            contacts.splice(index, 1)
+            storageContacts.splice(index, 1)
         }
 
-        resolve(contacts)
+        resolve(storageContacts)
     })
 }
 
 function _updateContact(contact) {
     return new Promise((resolve, reject) => {
-        const index = contacts.findIndex(c => contact._id === c._id)
+        const index = storageContacts.findIndex(c => contact._id === c._id)
         if (index !== -1) {
-            contacts[index] = contact
+            storageContacts[index] = contact
         }
+        storageService.save(storageKey, storageContacts)
         resolve(contact)
     })
 }
@@ -198,7 +207,9 @@ function _updateContact(contact) {
 function _addContact(contact) {
     return new Promise((resolve, reject) => {
         contact._id = _makeId()
-        contacts.push(contact)
+        contact.imgUrl = `https://robohash.org/set_set5/${contact._id}.png`
+        storageContacts.push(contact)
+        storageService.save(storageKey, storageContacts)
         resolve(contact)
     })
 }
@@ -207,28 +218,22 @@ function saveContact(contact) {
     return contact._id ? _updateContact(contact) : _addContact(contact)
 }
 
-// function loadContact(){
-
-// }
-
 function getEmptyContact() {
     return {
         name: '',
         email: '',
-        phone: ''
+        phone: '',
     }
 }
 
 function filter(term) {
     term = term.toLocaleLowerCase()
-    return contacts.filter(contact => {
+    return storageContacts.filter(contact => {
         return contact.name.toLocaleLowerCase().includes(term) ||
             contact.phone.toLocaleLowerCase().includes(term) ||
             contact.email.toLocaleLowerCase().includes(term)
     })
 }
-
-
 
 function _makeId(length = 10) {
     var txt = ''
@@ -238,3 +243,4 @@ function _makeId(length = 10) {
     }
     return txt
 }
+

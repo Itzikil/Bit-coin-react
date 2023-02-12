@@ -1,6 +1,6 @@
 import { ContactPreview } from './ContactPreview'
 
-export function ContactList({ contacts , changePage}) {
+export function ContactList({ contacts , changePage , contactPreview}) {
     if (!contacts) return <div>Loading...</div>
     return (
         <section className="contact-list flex column">
@@ -9,6 +9,7 @@ export function ContactList({ contacts , changePage}) {
                 key={contact._id}
                 contact={contact} 
                 changePage={changePage}
+                contactPreview={contactPreview}
                 />
             )}
         </section>

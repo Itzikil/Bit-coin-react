@@ -2,7 +2,8 @@
     input {
         width: 100%;
     }
-    h1{
+
+    h1 {
         font-size: 1rem;
     }
 
@@ -19,8 +20,19 @@
         right: 20px;
         bottom: 20px;
     }
-}
 
+    .contact-peak {
+        position: fixed;
+        right: 50%;
+        transform: translateX(50%);
+        background-image: linear-gradient(to right, rgb(102, 127, 160), rgb(228, 226, 226));
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        opacity: 0.8;
+        margin: auto;
+        border-radius: 10px;
+    }
+}
+// @keyframes
 @media (min-width: 600px) {
     .contact-page {
         input {

@@ -19,14 +19,16 @@ export const ContactEditPage = () => {
     if (contactId) {
       const contact = await contactService.getContactById(contactId)
       setContact(contact)
+    }else{
+      const contact = await contactService.getEmptyContact()
+      setContact(contact)
     }
-
   }
 
   const handleChange = ({ target }) => {
     const field = target.name
     let value = target.value
-
+    
     setContact(contact => ({  ...contact, [field]: value  }))
   }
 
@@ -56,7 +58,7 @@ export const ContactEditPage = () => {
     <section>
       <nav className='flex space'>
         <button onClick={onBack}>Back</button>
-        <button onClick={deleteContact}>Delete</button>
+        {name && <button onClick={deleteContact}>Delete</button>}
       </nav>
 
       <form className='flex column align-center gap15' onSubmit={onAddContact}>

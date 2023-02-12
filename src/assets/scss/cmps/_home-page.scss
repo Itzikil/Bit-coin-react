@@ -1,9 +1,23 @@
-.home-page{
+.home-page {
     gap: 10px;
     align-items: center;
 
-    span{
+    .user-image {
+        max-width: 220px;
+    }
+
+    span {
         font-weight: 800;
         font-size: 1.05rem;
     }
+
+    @media (max-width:640px) {
+        .previous-transfer-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+    }
+
 }
