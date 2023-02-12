@@ -25,6 +25,11 @@ export function userReducer(state = INITIAL_STATE, action) {
                 ...state,
                 loggedInUser: null,
             }
+        case 'DEPOSIT_COINS':
+            return {
+                ...state,
+                loggedInUser: null,
+            }
         default:
             return state;
     }

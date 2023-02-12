@@ -8,7 +8,7 @@ export const ContactDetailsPage = () => {
 
     const [contact, setContact] = useState()
     const [transfer, setTransfer] = useState()
-    const [previousTransfers, setpreviousTransfers] = useState()
+    const [previousTransfers, setPreviousTransfers] = useState()
     const moves = useSelector(state => state.userModule.moves)
 
     const dispatch = useDispatch()
@@ -45,7 +45,7 @@ export const ContactDetailsPage = () => {
         // console.log(contact);
         if (!contact) return
         const previousTransfers = moves?.filter(move => move.toId === contact._id)
-        setpreviousTransfers(previousTransfers)
+        setPreviousTransfers(previousTransfers)
     }
 
 
@@ -65,7 +65,7 @@ export const ContactDetailsPage = () => {
             <h1>{contact.name}</h1>
             <p>{contact.phone}</p>
             <p>{contact.email}</p>
-            <form className='transfer-coins flex column gap15' onSubmit={onTransferCoins}>
+            <form className='transfer-coins flex column gap15 align-center' onSubmit={onTransferCoins}>
                 <h3>Transfer coins to {contact.name}</h3>
                 <div className='flex gap15'>
                     <input type="text" placeholder='Amount' value={transfer} onChange={handleChange} />

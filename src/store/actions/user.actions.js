@@ -20,3 +20,11 @@ export function logout() {
         dispatch({ type: 'LOGOUT'})
     }
 }
+
+export function addCoins(coins) {
+    return (dispatch) => {
+        console.log(coins);
+         userService.depositeCoins(coins)
+        dispatch({ type: 'ADD_COINS' , coins})
+    }
+}

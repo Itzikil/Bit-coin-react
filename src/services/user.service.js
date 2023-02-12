@@ -1,4 +1,4 @@
-import {storageService} from './storage.service'
+import { storageService } from './storage.service'
 
 export const userService = {
     getUser,
@@ -6,6 +6,7 @@ export const userService = {
     signup,
     logout,
     transferCoins,
+    depositeCoins,
     getMoves
 }
 
@@ -30,25 +31,25 @@ function addMove(contact, amount) {
     const move = {
         toId: contact._id,
         to: contact.name,
-        at: new Date().getTime(), 
+        at: new Date().getTime(),
         amount
-    }       
+    }
     const moves = storageService.load('move') || []
     moves.push(move)
     storageService.save('move', moves)
     return move
 }
 
-function logout(){
+function logout() {
     storageService.save(STORAGE_KEY, null)
 }
 
-function transferCoins(amount , contact){
+function transferCoins(amount, contact) {
     const user = getUser()
-    if (amount > user.coins){
+    if (amount > user.coins) {
         return Promise.reject()
-    } 
-    
+    }
+
     const move = addMove(contact, amount)
     user.coins = user.coins - amount
     user.moves.push(move)
@@ -56,6 +57,12 @@ function transferCoins(amount , contact){
     return Promise.resolve()
 }
 
-function getMoves(){
+function getMoves() {
     return getUser()?.moves
+}
+
+function depositeCoins(coins) {
+    const user = getUser()
+    user.coins = +user.coins + +coins
+    storageService.save(STORAGE_KEY, user)
 }

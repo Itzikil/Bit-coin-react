@@ -1,0 +1,19 @@
+.deposite-container {
+    position: absolute;
+    background-image: linear-gradient(to right, rgb(102, 127, 160), rgb(228, 226, 226));
+    padding: 50px;
+    border-radius: 5px;
+    display: flex;
+    gap: 10px;
+    transition: all 1s ease-in-out;;
+}
+
+.close-container {
+    transform: translateY(-200%);
+    opacity: 0.8;
+}
+
+.open-container {
+    transform: translateY(100%);
+    opacity: 0.9;
+}

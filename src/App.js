@@ -8,6 +8,7 @@ import { ContactDetailsPage } from './views/ContactDetailsPage'
 import { ContactEditPage } from './views/ContactEditPage'
 import { StatisticPage } from './views/StatisticPage'
 import { SignupPage } from './views/signupPage'
+import { AboutPage } from './views/aboutPage'
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
                         <Route path="/signup" element={<SignupPage/>} />
                         <Route path="/statistic" element={<StatisticPage/>} />
                         <Route path="/contact" element={<ContactPage/>} />
+                        <Route path="/about" element={<AboutPage/>} />
                         <Route path="/" element={<HomePage/>} />
                     </Routes>
                 </main>
