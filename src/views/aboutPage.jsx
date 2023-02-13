@@ -12,7 +12,7 @@ export const AboutPage = () => {
             <p>I tried to deliver the feelng of a Bit / paybox app, you can transfer bitcoins to your contact with the latest exchange rate</p>
             <p>If you can't find your contact in the contact list you can add them by cilcking on the plus button</p>
             <p>If you ran out of Bit coins just deposite as many as you want</p>
-            <p>For more projects https://github.com/Itzikil</p>
+            <p>For more projects <a href="https://github.com/Itzikil" target='_blank' rel="noreferrer">My Github page</a></p>
         </section>
     )
 }

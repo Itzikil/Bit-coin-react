@@ -15,19 +15,24 @@ export const DepositeCoins = ({ depositeCoins, toggleDeposit }) => {
         const amount = target.value
         setCoinsAmount(amount)
     }
-
-    const deposit = (event) => {
-        event.preventDefault()
+    const closeModal = () => {
+        toggleDeposit()
+    }
+    
+    const deposit = (ev) => {
+        ev.preventDefault()
+        closeModal()
         dispatch(addCoins(coinsAmount))
     }
-    console.log(depositeCoins);
+
     return (
-        <section className={openModal ? 'open-container deposite-container' : "close-container deposite-container"}>
-            <form onSubmit={(event) => { deposit(event); toggleDeposit(event) }}>
-                <h3>Deposite</h3>
+        <section className={`deposite-container ${openModal ? 'open-container' : 'close-container'}`}>
+            <form onSubmit={deposit}>
+                <button className="close-btn" onClick={closeModal}>X</button>
+                <h3 className="m5">Deposite Bitcoins</h3>
                 <input type="text" placeholder="amount" onChange={handleChange} />
                 <button>Deposit</button>
             </form>
-        </section>
+        </section >
     )
 }

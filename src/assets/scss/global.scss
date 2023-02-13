@@ -15,11 +15,11 @@
 
 // Views
 @import "./views/contact-details" ;
+@import "./views/home-page";
+@import "./views/contact-page";
 
 // Components
-@import "./cmps/home-page";
 @import "./cmps/contact-list";
-@import "./cmps/contact-page";
 @import "./cmps/app-header";
 @import "./cmps/deposite-coins";
 

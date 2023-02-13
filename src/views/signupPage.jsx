@@ -12,14 +12,12 @@ export const SignupPage = () => {
 
     const handleChange = ({ target }) => {
         const username = target.value
-        // setUsername(username => (  {username} ))
         setUsername(username)
     }
 
     const onSignup = (ev) => {
         ev.preventDefault()
         if (!username) return console.log('add your name')
-        // userService.signup(username)
         dispatch(signup(username))
         navigate('/')
     }
@@ -27,7 +25,8 @@ export const SignupPage = () => {
     return (
         <form className='signup-page flex column gap15 align-center' onSubmit={onSignup}>
             <label htmlFor="name">Please enter your name:</label>
-            <input type="text" value={username} name='username' placeholder='Write your name' onChange={handleChange} />
+            {/* <input type="text" value={username} name='username' placeholder='Write your name' onChange={handleChange} /> */}
+            <input type="text"  placeholder='Write your name' onChange={handleChange} />
             <button>Sign up</button>
         </form>
     )

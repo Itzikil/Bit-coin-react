@@ -32,6 +32,7 @@ export const ContactDetailsPage = () => {
         const transfer = target.value
         // setUsername(username => (  {username} ))
         setTransfer(transfer)
+        target.value = ''
     }
 
     const onTransferCoins = (ev) => {
@@ -61,14 +62,15 @@ export const ContactDetailsPage = () => {
                 <button className='' onClick={onBack}>Back</button>
                 <Link to={`/contact/edit/${contact._id}`}>Edit</Link>
             </nav>
-            <img src={contact.imgUrl} alt="contact image"/>
+            <img src={contact.imgUrl} alt="contact"/>
             <h1>{contact.name}</h1>
             <p>{contact.phone}</p>
             <p>{contact.email}</p>
             <form className='transfer-coins flex column gap15 align-center' onSubmit={onTransferCoins}>
                 <h3>Transfer coins to {contact.name}</h3>
                 <div className='flex gap15'>
-                    <input type="text" placeholder='Amount' value={transfer} onChange={handleChange} />
+                    {/* <input type="text" placeholder='Amount' value={transfer} onChange={handleChange} /> */}
+                    <input type="text" placeholder='Amount' onChange={handleChange} />
                     <button>Transfer</button>
                 </div>
             </form>
