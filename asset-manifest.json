@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Bit-coin-react/static/css/main.44a8949d.css",
-    "main.js": "/Bit-coin-react/static/js/main.9e65f99c.js",
+    "main.css": "/Bit-coin-react/static/css/main.01c680e8.css",
+    "main.js": "/Bit-coin-react/static/js/main.17215624.js",
     "static/js/787.28cb0dcd.chunk.js": "/Bit-coin-react/static/js/787.28cb0dcd.chunk.js",
     "index.html": "/Bit-coin-react/index.html",
-    "main.44a8949d.css.map": "/Bit-coin-react/static/css/main.44a8949d.css.map",
-    "main.9e65f99c.js.map": "/Bit-coin-react/static/js/main.9e65f99c.js.map",
+    "main.01c680e8.css.map": "/Bit-coin-react/static/css/main.01c680e8.css.map",
+    "main.17215624.js.map": "/Bit-coin-react/static/js/main.17215624.js.map",
     "787.28cb0dcd.chunk.js.map": "/Bit-coin-react/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.44a8949d.css",
-    "static/js/main.9e65f99c.js"
+    "static/css/main.01c680e8.css",
+    "static/js/main.17215624.js"
   ]
 }
