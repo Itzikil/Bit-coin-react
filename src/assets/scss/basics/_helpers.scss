@@ -1,4 +1,8 @@
 // Font Sizes
+.xs-font {
+    font-size: rem(10px);
+}
+
 .sm-font {
     font-size: rem(14px);
 }
@@ -41,6 +45,10 @@
 
     &.align-center {
         align-items: center;
+    }
+
+    &.align-start {
+        align-items: start;
     }
 
     &.wrap {
@@ -212,6 +220,10 @@
 }
 
 .gap5 {
+    gap: 5px;
+}
+
+.gap10 {
     gap: 5px;
 }
 

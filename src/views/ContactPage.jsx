@@ -39,11 +39,8 @@ export class ContactPage extends Component {
     const { contacts, filterBy, contact } = this.state
     if (!contacts?.length) return <div>Loading...</div>
     return (
-      <section className='flex column contact-page gap15'>
-        <div >
-          <ContactFilter onChangeFilter={this.onChangeFilter} filterBy={filterBy} />
-          <Link to={`/contact/edit`} className='btn add-btn'><p>+</p></Link>
-        </div>
+      <section className='flex column contact-page gap15 relative'>
+        <ContactFilter onChangeFilter={this.onChangeFilter} filterBy={filterBy} />
         <ContactList contacts={contacts} contactPreview={this.contactPreview} />
         {contact &&
           <div className='contact-peak flex align-center column gap5'>
@@ -51,6 +48,7 @@ export class ContactPage extends Component {
             <h3>{contact.name}</h3>
           </div>
         }
+        <Link to={`/contact/edit`} className='btn add-btn'><p>+</p></Link>
       </section>
     )
   }

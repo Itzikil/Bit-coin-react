@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { NavLink, useNavigate } from "react-router-dom"
+import gsap from 'gsap'
 import { DepositeCoins } from "../cpms/depositeCoins"
 import { PreviousTransfer } from "../cpms/previousTransfer"
 import { bitcoinService } from "../services/bitcoin.service"

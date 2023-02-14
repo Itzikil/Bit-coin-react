@@ -14,7 +14,7 @@
 @import "basics/animations";
 
 // Views
-@import "./views/contact-details" ;
+@import "./views/contact-details";
 @import "./views/home-page";
 @import "./views/contact-page";
 
@@ -31,21 +31,42 @@
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
+    position: relative;
+
     .app-header {
         background-color: $clr1;
     }
-    
+
     main {
         flex-grow: 1;
         width: 100%;
     }
 }
 
-.dark {
-    color: $clr2;
-    background-color: $clr4;
+.nice-background {
+    background-image: linear-gradient(45deg, $clr1 , $clr2 , $clr3);
+    position: fixed;
+    top: 40%;
+    width: 100vw;
+    z-index: -1;
+    height: 30vh;
+    transform: skewY(-5deg);
+    opacity: 0.8;
 }
-.light {
+
+html {
     background-color: #e8edef;
     color: #2f2b2b;
 }
+
+.dark {
+    color: $clr2;
+    // background-color: $clr4;
+}
+
+.light {
+    // background-color: #e8edef;
+}
+
+// .chart {
+// }

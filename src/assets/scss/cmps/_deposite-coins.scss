@@ -3,10 +3,10 @@
     background-image: linear-gradient(to left, rgb(91, 121, 160), rgb(202, 199, 199));
     padding: 50px;
     border-radius: 5px;
-    display: flex;
-    gap: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    min-width: 330px;
     transition: all 1s ease-in-out;
-
+    
     .close-btn {
         position: absolute;
         right: 50px;
@@ -14,16 +14,26 @@
     }
 
     button {
-        &:hover {color: rgb(53, 52, 52);}
+        &:hover {
+            color: rgb(53, 52, 52);
+        }
     }
 }
 
 .close-container {
+    animation: none;
     transform: translateY(-200%);
     opacity: 0.8;
 }
 
 .open-container {
-    transform: translateY(100%);
+    transform: translateY(15%);
     opacity: 0.95;
+    // animation: float 3s infinite;
 }
+
+// @keyframes float{
+//     0% { transform: translateY(15%) }
+//     50% { transform: translateY(18%) }
+//     100% { transform: translateY(15%) }
+// }

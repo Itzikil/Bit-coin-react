@@ -21,6 +21,7 @@ function App() {
         <Router>
             <section className={!isDark ? "main-app dark" : "main-app light"}>
                 <AppHeader />
+                <div className='nice-background' />
                 <main className='container'>
                     <Routes>
                         <Route path="/contact/edit/:id" element={<ContactEditPage/>} />

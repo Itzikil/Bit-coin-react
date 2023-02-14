@@ -6,7 +6,7 @@ export class StatisticPage extends Component {
 
     state = {
         marketPrice: null,
-        transactions:null
+        transactions: null
     }
     componentDidMount() {
         this.getStats()
@@ -15,14 +15,15 @@ export class StatisticPage extends Component {
     async getStats() {
         const marketPrice = await bitcoinService.getMarketPrice()
         const transactions = await bitcoinService.getConfirmedTransactions()
-        this.setState({ marketPrice , transactions})
+        this.setState({ marketPrice, transactions })
     }
     render() {
-        const { marketPrice , transactions } = this.state
+        const { marketPrice, transactions } = this.state
         return (
             <section>
-                <Chart stats={marketPrice} headline={'Market Price'}/>
-                <Chart stats={transactions} headline={'Confirmed Transactions'}/>
+                <h3 className='text-center m10'>Bitcoin Statistics</h3>
+                <Chart stats={marketPrice} headline={'Market Price'} />
+                <Chart stats={transactions} headline={'Confirmed Transactions'} />
             </section>
         )
     }

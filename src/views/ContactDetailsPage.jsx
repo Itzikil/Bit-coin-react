@@ -68,16 +68,16 @@ export const ContactDetailsPage = () => {
             <p>{contact.email}</p>
             <form className='transfer-coins flex column gap15 align-center' onSubmit={onTransferCoins}>
                 <h3>Transfer coins to {contact.name}</h3>
-                <div className='flex gap15'>
-                    {/* <input type="text" placeholder='Amount' value={transfer} onChange={handleChange} /> */}
-                    <input type="text" placeholder='Amount' onChange={handleChange} />
+                <div className='flex gap5'>
+                    <input type="text" placeholder='Amount' value={transfer} onChange={handleChange} />
+                    {/* <input type="text" placeholder='Amount' onChange={handleChange} /> */}
                     <button>Transfer</button>
                 </div>
             </form>
-            <div className='previous-transfer'>
+            <div className='previous-transfer flex column gap15'>
                 <h3>Previous transfers</h3>
                 {previousTransfers &&
-                    <ul className='previous-transfer flex column gap15'>
+                    <ul className='flex column gap15'>
                         {previousTransfers.map((move, idx) => {
                             return <li key={move.at}>
                                 <p><span>At:</span> {new Date(move.at).toLocaleString()}</p>

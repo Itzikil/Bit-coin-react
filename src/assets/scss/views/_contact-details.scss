@@ -32,9 +32,19 @@
     background-color: rgb(72, 91, 104);
     padding: 20px;
     border-radius: 5px;
+    min-width: 330px;
 
-    li {
-        align-items: center;
+    .contactImg {
+        margin-right: 15px;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+            align-items: center;
+        }
     }
 
     .contactImg {

@@ -35,7 +35,7 @@ function addMove(contact, amount) {
         amount
     }
     const moves = storageService.load('move') || []
-    moves.push(move)
+    moves.unshift(move)
     storageService.save('move', moves)
     return move
 }
@@ -52,7 +52,7 @@ function transferCoins(amount, contact) {
 
     const move = addMove(contact, amount)
     user.coins = user.coins - amount
-    user.moves.push(move)
+    user.moves.unshift(move)
     storageService.save(STORAGE_KEY, user)
     return Promise.resolve()
 }

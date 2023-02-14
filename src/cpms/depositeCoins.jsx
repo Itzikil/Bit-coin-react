@@ -13,6 +13,7 @@ export const DepositeCoins = ({ depositeCoins, toggleDeposit }) => {
 
     const handleChange = ({ target }) => {
         const amount = target.value
+        if (isNaN(amount)) return console.log('Only valid numbers')
         setCoinsAmount(amount)
     }
     const closeModal = () => {
@@ -22,13 +23,14 @@ export const DepositeCoins = ({ depositeCoins, toggleDeposit }) => {
     const deposit = (ev) => {
         ev.preventDefault()
         closeModal()
+        if (!coinsAmount) return console.log('Only valid numbers')
         dispatch(addCoins(coinsAmount))
     }
 
     return (
         <section className={`deposite-container ${openModal ? 'open-container' : 'close-container'}`}>
-            <form onSubmit={deposit}>
                 <button className="close-btn" onClick={closeModal}>X</button>
+            <form onSubmit={deposit} className='flex column gap5'>
                 <h3 className="m5">Deposite Bitcoins</h3>
                 <input type="text" placeholder="amount" onChange={handleChange} />
                 <button>Deposit</button>

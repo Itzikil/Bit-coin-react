@@ -30,8 +30,8 @@ export function AppHeader() {
                 <nav className={mobileMenu ? 'desktop-menu open-menu' : 'desktop-menu close-menu'}>
                     {loggedInUser ?
                         <>
-                            <NavLink to="/statistic" >Statistics</NavLink>
                             <NavLink to="/contact" >Contact</NavLink>
+                            <NavLink to="/statistic" >Statistics</NavLink>
                             <p onClick={signout} className="pointer link">Logout</p>
                         </>
                         :
