@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { contactService } from '../services/contact.service'
 import { transferCoins } from '../store/actions/user.actions'
+import loader from '../assets/svg/loader.gif'
 
 export const ContactDetailsPage = () => {
 
@@ -55,7 +56,7 @@ export const ContactDetailsPage = () => {
         navigate('/contact')
     }
     console.log(previousTransfers);
-    if (!contact) return <div>Loading...</div>
+    if (!contact) return <img src={loader} alt="loading" width={100}/>
     return (
         <section className='contact-details flex column align-center'>
             <nav className='flex space align-center'>
@@ -67,7 +68,7 @@ export const ContactDetailsPage = () => {
             <p>{contact.phone}</p>
             <p>{contact.email}</p>
             <form className='transfer-coins flex column gap15 align-center' onSubmit={onTransferCoins}>
-                <h3>Transfer coins to {contact.name}</h3>
+                <h4>Transfer coins to {contact.name}</h4>
                 <div className='flex gap5'>
                     <input type="text" placeholder='Amount' value={transfer} onChange={handleChange} />
                     {/* <input type="text" placeholder='Amount' onChange={handleChange} /> */}

@@ -2,18 +2,17 @@ import { userService } from "../../services/user.service";
 
 const INITIAL_STATE = {
     loggedInUser: userService.getUser(),
-    moves : userService.getMoves()
+    moves: userService.getMoves()
 }
 
 export function userReducer(state = INITIAL_STATE, action) {
-
+    const { loggedInUser, moves } = state
     switch (action.type) {
         case 'TRANSFER_COINS':
-            const { loggedInUser ,moves } = state
             return {
                 ...state,
                 loggedInUser: { ...loggedInUser, coins: loggedInUser.coins - action.amount },
-                moves : [...userService.getMoves()],
+                moves: [...userService.getMoves()],
             }
         case 'SIGNUP':
             return {
@@ -24,11 +23,12 @@ export function userReducer(state = INITIAL_STATE, action) {
             return {
                 ...state,
                 loggedInUser: null,
+                moves: null,
             }
-        case 'DEPOSIT_COINS':
+        case 'ADD_COINS':
             return {
                 ...state,
-                loggedInUser: null,
+                loggedInUser: { ...loggedInUser, coins: +loggedInUser?.coins + +action.coins },
             }
         default:
             return state;

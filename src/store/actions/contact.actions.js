@@ -1,12 +1,12 @@
 import { contactService } from "../../services/contact.service"
 
-export function loadRobots() {
+export function loadContacts() {
 
     return async (dispatch, getState) => {
         try {
-            const filterBy = getState().robotModule.filterBy
-            const robots = await robotService.query(filterBy)
-            dispatch({ type: 'SET_ROBOTS', robots })
+            const filterBy = getState().contactModule.filterBy
+            const contacts = await contactService.query(filterBy)
+            dispatch({ type: 'SET_CONTACTS', contacts })
             return 'hello'
         } catch (err) {
             console.log('err:', err)
@@ -14,12 +14,12 @@ export function loadRobots() {
     }
 }
 
-export function removeRobot(robotId) {
+export function removeContact(contactId) {
 
     return async (dispatch) => {
         try {
-            const robots = await robotService.remove(robotId)
-            dispatch({ type: 'REMOVE_ROBOT', robotId })
+            const contacts = await contactService.remove(contactId)
+            dispatch({ type: 'REMOVE_CONTACT', contactId })
             return 'hello'
         } catch (err) {
             console.log('err:', err)

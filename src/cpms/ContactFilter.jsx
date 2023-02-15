@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import loader from '../assets/svg/loader.gif'
 
 export class ContactFilter extends Component {
 
@@ -22,7 +23,7 @@ export class ContactFilter extends Component {
     }
     render() {
         const { filterBy } = this.state
-        if (!filterBy) return <div>Loading...</div>
+        if (!filterBy) return <img src={loader} alt="loading" width={100}/>
         const { term } = filterBy
         return (
             <section>
