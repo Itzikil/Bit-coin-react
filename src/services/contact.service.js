@@ -147,8 +147,8 @@ const contacts = [
 ]
 
 function loadContacts() {
-    const contactList = storageService.save(storageKey, contacts)
-    return contactList
+    storageService.save(storageKey, contacts)
+    return contacts
 }
 
 const storageContacts = storageService.load(storageKey) || loadContacts()
@@ -169,6 +169,7 @@ function sort(arr) {
 function getContacts(filterBy = null) {
     return new Promise((resolve, reject) => {
         var contactsToReturn = storageContacts
+        console.log(contactsToReturn);
         if (filterBy && filterBy.term) {
             contactsToReturn = filter(filterBy.term)
         }
